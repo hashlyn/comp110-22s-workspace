@@ -21,14 +21,13 @@ while index < len(secret_word):
         letter_found_anywhere: bool = False
         alternate_indices: int = 0
         while letter_found_anywhere and alternate_indices < len(secret_word):
-            if alternate_indices == six_letter_guess[index]: 
+            if secret_word[alternate_indices] == six_letter_guess[index]: 
                 letter_found_anywhere = not letter_found_anywhere
             else: 
+                resulting_emoji = resulting_emoji + YELLOW_BOX
                 alternate_indices = alternate_indices + 1
         if not letter_found_anywhere: 
-            resulting_emoji = resulting_emoji + YELLOW_BOX
-        else:
-            resulting_emoji = resulting_emoji + WHITE_BOX 
+            resulting_emoji = resulting_emoji + WHITE_BOX
     index = index + 1 
 print(resulting_emoji)
 
