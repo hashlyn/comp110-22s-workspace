@@ -8,26 +8,27 @@ six_letter_guess: str = input(f"What is your {len(secret_word)}-letter guess? ")
 while len(six_letter_guess) != len(secret_word):
     six_letter_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
 
-index: int = 0
+index: int = 0 
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
-resulting_emoji: str = " "
+resulting_emoji: str = ""
 
 while index < len(secret_word): 
     if six_letter_guess[index] == secret_word[index]:
         resulting_emoji = resulting_emoji + GREEN_BOX
     else:
-        letter_found_anywhere: bool = False
-        alternate_indices: int = 0
-        while letter_found_anywhere and alternate_indices < len(secret_word):
-            if secret_word[alternate_indices] == six_letter_guess[index]: 
-                letter_found_anywhere = not letter_found_anywhere
+        character_anywhere_in_word: bool = False
+        alternate_index: int = 0 
+        while not character_anywhere_in_word and alternate_index < len(secret_word):
+            if secret_word[alternate_index] == six_letter_guess[index]:
+                character_anywhere_in_word = True
             else: 
-                resulting_emoji = resulting_emoji + YELLOW_BOX
-                alternate_indices = alternate_indices + 1
-        if not letter_found_anywhere: 
-            resulting_emoji = resulting_emoji + WHITE_BOX
+                alternate_index = alternate_index + 1 
+        if character_anywhere_in_word: 
+            resulting_emoji = resulting_emoji + YELLOW_BOX
+        else: 
+            resulting_emoji = resulting_emoji + WHITE_BOX 
     index = index + 1 
 print(resulting_emoji)
 
