@@ -33,7 +33,7 @@ def emojified(guess: str, secret_word: str) -> str:
         else: 
             resulting_emoji = resulting_emoji + WHITE_BOX
             idx += 1
-    return resulting_emoji 
+    return resulting_emoji
 
 
 def input_guess(expected_length_of_guess: int) -> str: 
