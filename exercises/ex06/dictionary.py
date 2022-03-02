@@ -3,18 +3,18 @@
 __author__ = "730412456"
 
 
-def invert(dictionary: dict[str, str]) -> dict[str, str]: 
+def invert(orig_dictionary: dict[str, str]) -> dict[str, str]: 
     """Inverting a given dictionary."""
     invert_dictionary: dict[str, str] = {}
-    for key_dictionary in dictionary:
-        if dictionary[key_dictionary] in invert_dictionary:
+    for key_dictionary in orig_dictionary:
+        if orig_dictionary[key_dictionary] in invert_dictionary:
             raise KeyError("KeyError")
         else: 
-            invert_dictionary[dictionary[key_dictionary]] = key_dictionary
+            invert_dictionary[orig_dictionary[key_dictionary]] = key_dictionary
     return invert_dictionary
 
 
-def favorite_colors(personal_favs: dict[str, str]) -> str: 
+def favorite_color(personal_favs: dict[str, str]) -> str: 
     """Returns what color appears most frequently."""
     color_list: list[str] = []
     for key in personal_favs: 
