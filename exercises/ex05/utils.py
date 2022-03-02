@@ -21,6 +21,8 @@ def sub(a_list: list[int], start_index: int, end_index: int) -> list[int]:
     sublist: list[int] = list()
     if start_index < 0: 
         start_index = 0 
+    if start_index == len(a_list): 
+        return sublist
     if end_index > len(a_list): 
         end_index = len(a_list)
     if len(a_list) == 0 or start_index > len(a_list) or end_index <= 0: 
@@ -44,3 +46,4 @@ def concat(first_list: list[int], second_list: list[int]) -> list[int]:
         concat_list.append(second_list[counter])
         counter += 1
     return concat_list 
+    
